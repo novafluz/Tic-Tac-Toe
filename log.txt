@@ -1,0 +1,38 @@
+Tic-tac-toe Game (Version: 0.4.25022880)
+------------------------------------------------
+[INFO] - [2026-03-31 00:52:21] GameLogger initialized!
+[INFO] - [2026-03-31 00:52:21] GameInteraction initialized!
+[INFO] - [2026-03-31 00:52:21] Screen cleared
+[INFO] - [2026-03-31 00:52:27] Final size: 5
+[INFO] - [2026-03-31 00:52:28] Setup confirmed. Goal: 4, Size: 5
+[INFO] - [2026-03-31 00:52:31] Mode 2 selected.
+[INFO] - [2026-03-31 00:52:37] Bot level for player 1 (EASY) and player 2 (MEDIUM) selected.
+[DEBUG] - [2026-03-31 00:52:37] Board initiated!
+[INFO] - [2026-03-31 00:52:37] Board setup completed.
+[INFO] - [2026-03-31 00:52:37] GameEngine initialized!
+[DEBUG] - [2026-03-31 00:52:37] execution time of [botMove()] = 6e-06s
+[DEBUG] - [2026-03-31 00:52:38] execution time of [botMove()] = 9.4e-06s
+[DEBUG] - [2026-03-31 00:52:40] execution time of [botMove()] = 9e-07s
+[DEBUG] - [2026-03-31 00:52:41] execution time of [botMove()] = 1.32e-05s
+[DEBUG] - [2026-03-31 00:52:43] execution time of [botMove()] = 6e-07s
+[DEBUG] - [2026-03-31 00:52:44] execution time of [botMove()] = 1.49e-05s
+[DEBUG] - [2026-03-31 00:52:46] execution time of [botMove()] = 6e-07s
+[DEBUG] - [2026-03-31 00:52:47] execution time of [botMove()] = 1e-05s
+[DEBUG] - [2026-03-31 00:52:49] execution time of [botMove()] = 5e-07s
+[DEBUG] - [2026-03-31 00:52:50] execution time of [botMove()] = 1.28e-05s
+[DEBUG] - [2026-03-31 00:52:52] execution time of [botMove()] = 6e-07s
+[DEBUG] - [2026-03-31 00:52:53] execution time of [botMove()] = 1.33e-05s
+[DEBUG] - [2026-03-31 00:52:55] execution time of [botMove()] = 7e-07s
+[DEBUG] - [2026-03-31 00:52:56] execution time of [botMove()] = 1.33e-05s
+[DEBUG] - [2026-03-31 00:52:58] execution time of [botMove()] = 1.1e-06s
+[DEBUG] - [2026-03-31 00:52:59] execution time of [botMove()] = 1.65e-05s
+[DEBUG] - [2026-03-31 00:53:01] execution time of [botMove()] = 9e-07s
+[DEBUG] - [2026-03-31 00:53:02] execution time of [botMove()] = 1.23e-05s
+[DEBUG] - [2026-03-31 00:53:04] execution time of [botMove()] = 8e-07s
+[DEBUG] - [2026-03-31 00:53:05] execution time of [botMove()] = 4.3e-06s
+[INFO] - [2026-03-31 00:53:07] GameEngine playing done!
+[INFO] - [2026-03-31 00:53:07] Screen cleared
+[INFO] - [2026-03-31 00:53:07] Game over. Winner: Player 2. isBot: true. Total moves: 20
+[INFO] - [2026-03-31 00:53:07] GameEngine show endgame done!
+[INFO] - [2026-03-31 00:53:07] GameInteraction closed!
+[INFO] - [2026-03-31 00:53:07] GameLogger closing . . .
