@@ -1450,18 +1450,22 @@ void showSelectMenu(SelectType selectType) {
  */
 void displayBoard(const char board[][BOARD_N_MAX], const int size) {
   // TODO:
-  std::cout << "  ";
+  std::cout << "    ";
   for (int i{0}; i < size; i++) {
-    std::cout << std::setw(2) << i; // setw to align i (2 digits case)
+    std::cout << std::setw(2) << i;
   }
   std::cout << "\n";
-  std::cout << "  " << std::string(size * 2 + 1, '-') << std::endl;
+
+  std::cout << "   +" << std::string(size * 2, '-') << "\n";
+
+  // 3. In từng hàng của bàn cờ
   for (int row{0}; row < size; row++) {
-    std::cout << std::setw(2) << row << " |"; // setw is for 2 digits size.
+    // In chỉ số hàng và ký tự phân cách
+    std::cout << std::setw(2) << row << " |";
+
     for (int col{0}; col < size; col++) {
-      std::cout << board[row][col];
-      if (col < size - 1)
-        std::cout << " ";
+
+      std::cout << std::setw(2) << board[row][col];
     }
     std::cout << "\n";
   }
@@ -1648,8 +1652,8 @@ void startGame(const RunConfig &config, GameSetup &gameSetup) {
       showSelectMenu(SelectType::GAME_MODE_UI);
     if (selectGameMode(&gameSetup.mode)) {
       // pass by address, selectGM processes input & assign back to value
-      GameLogger::log(
-          std::format("Mode {} selected.", static_cast<int>(gameSetup.mode)));
+      GameLogger::log(std::format("Mode {} selected.",
+                                  static_cast<int>(gameSetup.mode) + 1));
       break;
     } else {
       GameLogger::log("Invalid mode (Must be 1 <= mode <= 3)",
