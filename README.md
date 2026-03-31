@@ -30,10 +30,10 @@ Get the game running in seconds by executing these commands in your terminal:
       git clone https://github.com/novafluz/Tic-Tac-Toe.git
  2. Move into the project directory
     ```bash
-        cd Tic-Tac-Toe
+    cd Tic-Tac-Toe
  3. Compile the source code using C++20 standard
     ```bash
-      g++ -std=c++20 -Wall -Wextra game.cpp -o game.exe
+    g++ -std=c++20 -Wall -Wextra game.cpp -o game.exe
  4. Launch the game
     ```bash
     ./game.exe
