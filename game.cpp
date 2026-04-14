@@ -2207,7 +2207,7 @@ pII botMove(char board[][BOARD_N_MAX], const int size, const int goal,
     // return hard_level(board, size, goal, symbol, opponent)
 
     // fallback (avoid crash)
-    return random_pick(board, size);
+    return hard_level(board, size, goal, symbol, opponent);
 
   default:
     return random_pick(board, size);
@@ -2309,22 +2309,91 @@ pII simple_heuristic(char board[][BOARD_N_MAX], const int size, const int goal,
  *
  * You may also combine multiple techniques.
  */
+int evaluate(char board[][BOARD_N_MAX], const int size, const int goal,
+             const char botSymbol, const char playerSymbol) {
+  if (checkWin(board, size, botSymbol, goal))
+    return 10000;
+  if (checkWin(board, size, playerSymbol, goal))
+    return -10000;
+  return 0;
+}
+
+int minimax(char board[][BOARD_N_MAX], const int size, const int goal,
+            int depth, bool isMax, const char botSymbol,
+            const char playerSymbol, int alpha, int beta) {
+  // depth: how many steps bot can foresee ahead
+  // alpha: bot has the best move
+  // beta: player could surpress bot the most
+  int score = evaluate(board, size, goal, botSymbol, playerSymbol);
+  if (score == 10000)
+    return score + depth; // prioritize win at a lower depth
+  if (score == -10000)
+    return score - depth; // lose later (-1e9 - 3 vs -1e9 - 4)
+  if (checkDraw(board, size) || depth == 0)
+    return 0;
+  if (isMax) {
+    int best = -1e9;
+    for (int i = 0; i < size; i++) {
+      for (int j = 0; j < size; j++) {
+        if (board[i][j] == '-') {
+          board[i][j] = botSymbol;
+          int val = minimax(board, size, goal, depth - 1, false, botSymbol,
+                            playerSymbol, alpha, beta);
+          best = std::max(best, val);
+          alpha = std::max(alpha, best);
+          board[i][j] = '-';
+          if (beta <= alpha)
+            return best;
+        }
+      }
+    }
+    return best;
+  } else {
+    int best = 1e9;
+    for (int i = 0; i < size; i++) {
+      for (int j = 0; j < size; j++) {
+        if (board[i][j] == '-') {
+          board[i][j] = playerSymbol;
+          int val = minimax(board, size, goal, depth - 1, true, botSymbol,
+                            playerSymbol, alpha, beta);
+          best = std::min(best, val);
+          beta = std::min(beta, best);
+          board[i][j] = '-';
+          if (beta <= alpha)
+            return best;
+        }
+      }
+    }
+    return best;
+  }
+}
 
 pII hard_level(char board[][BOARD_N_MAX], const int size, const int goal,
                const char botSymbol, const char playerSymbol) {
   // TODO: optional bonus implementation
   // Use parameters to avoid compiler warnings when the bonus strategy is not
   // implemented.
-  (void)board;
-  (void)size;
-  (void)goal;
-  (void)botSymbol;
-  (void)playerSymbol;
-
-  // fallback
-  return random_pick(board, size);
+  int bestVal = -1e9;
+  pII bestMove = {-1, -1};
+  int depth = 4; // bot predicts next 4 move
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < size; j++) {
+      if (board[i][j] == '-') {
+        board[i][j] = botSymbol;
+        int moveVal = minimax(board, size, goal, depth, false, botSymbol,
+                              playerSymbol, bestVal, 1e9);
+        board[i][j] = '-';
+        if (moveVal > bestVal) {
+          bestVal = moveVal;
+          bestMove = {i, j};
+        }
+      }
+    }
+  }
+  if (bestMove.first == -1)
+    return random_pick(board, size);
+  return bestMove;
 }
-
 /* ---------- Game Helper ---------- */
 /**
  * ============================================================
