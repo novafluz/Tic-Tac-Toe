@@ -11,6 +11,7 @@ This project is a fully customizable, terminal-based strategy game developed in 
 * **Intelligent AI Opponents:**
   * **EASY:** A foundational bot that selects random, valid moves.
   * **MEDIUM:** A heuristic-driven bot programmed to actively analyze the board, prioritize immediate winning strikes, and block opponent threats.
+  * **HARD:** An elite AI utilizing the Minimax Algorithm with Alpha-Beta Pruning. It simulates thousands of game states via recursive search (depth-4) to find mathematically optimal moves, ensuring a high-difficulty strategic experience.
 * **Judge Mode:** Includes a specialized automated testing mode that reads pre-configured inputs from a file and outputs results in a strict, standardized format for easy grading.
 
 ## Installation & Execution
