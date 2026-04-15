@@ -28,7 +28,7 @@ Get the game running in seconds by executing these commands in your terminal:
 
  1. Clone the source code to your local machine
     ```bash
-      git clone https://github.com/novafluz/Tic-Tac-Toe.git
+    git clone https://github.com/novafluz/Tic-Tac-Toe.git
  2. Move into the project directory
     ```bash
     cd Tic-Tac-Toe
